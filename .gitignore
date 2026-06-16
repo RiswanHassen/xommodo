@@ -1,0 +1,3 @@
+# OpenTimestamps upgrade-Backups + atomare Rewrite-Temps (lokal, nicht Teil des Records)
+ots/*.bak
+*.tmp
