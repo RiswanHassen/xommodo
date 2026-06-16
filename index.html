@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commodity Price Intelligence — Copper (Preview)</title>
+<style>
+  body { font-family:-apple-system,Segoe UI,Roboto,sans-serif; margin:0;
+         background:#f4f6f8; color:#222; }
+  .wrap { max-width:980px; margin:0 auto; padding:24px 16px 56px; }
+  h1 { font-size:24px; margin:18px 0 2px; }
+  .tag { color:#667; font-size:14px; margin-bottom:20px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+            gap:12px; margin:18px 0 24px; }
+  .card { background:#fff; border-radius:10px; padding:14px 16px;
+           box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .lbl { font-size:12px; color:#889; text-transform:uppercase; letter-spacing:.04em; }
+  .val { font-size:23px; font-weight:600; margin-top:4px; }
+  .sub { font-size:12px; color:#99a; margin-top:2px; }
+  .nav a { display:inline-block; background:#46647d; color:#fff; text-decoration:none;
+            padding:11px 18px; border-radius:8px; margin:0 10px 10px 0; font-size:15px; }
+  .verify { background:#fff; border-radius:10px; padding:16px 18px; font-size:13px;
+             line-height:1.6; box-shadow:0 1px 3px rgba(0,0,0,.08); color:#445; }
+  code { background:#eef; padding:1px 5px; border-radius:4px; font-size:12px; }
+  .foot { color:#99a; font-size:12px; margin-top:24px; line-height:1.5; }
+</style></head>
+<body><div style="background:#fff3cd;border-bottom:2px solid #e0a800;color:#664d03;padding:12px 16px;font-size:13px;line-height:1.55;text-align:center;"><b>Research-Demonstration — keine Anlageberatung.</b> Reine Forschungs-Demo, keine Handelsempfehlung, keine Gewähr. Simulierte und historische Ergebnisse sind kein Indikator für künftige Resultate.<br><span style="opacity:.75"><b>Research demonstration — not investment advice.</b> Research only, no recommendation, no warranty. Simulated and past results are not indicative of future performance.</span></div>
+  <div class="wrap">
+    <h1>Commodity Price Intelligence <span style="color:#889;font-weight:400;">— Copper · Preview</span></h1>
+    <div class="tag">Vorlaufende, schwache Upstream-Signale → Commodity-Preis-Forecast.
+      Un-fälschbarer, zeitgestempelter Live-Track-Record. Kostenlose Vorschau,
+      Stand 2026-06-15.</div>
+    <div class="cards"><div class="card"><div class="lbl">Guthaben (Sim)</div><div class="val">$23,289</div><div class="sub">Start $10,000</div></div><div class="card"><div class="lbl">Profit (Sim)</div><div class="val">+132.9%</div><div class="sub">$+13,289</div></div><div class="card"><div class="lbl">vs Buy-and-Hold</div><div class="val">+86.4 pp</div><div class="sub">BAH +46.5%</div></div><div class="card"><div class="lbl">Zeitraum</div><div class="val">1261 Tage</div><div class="sub">bis 2026-06-12</div></div><div class="card"><div class="lbl">Verankerte Predictions</div><div class="val">6</div><div class="sub">6 Ledger-Einträge</div></div><div class="card"><div class="lbl">Letzter Forecast</div><div class="val">2026-06-15</div><div class="sub">q10/q50/q90 · 10 Tage</div></div></div>
+    <div class="nav">
+      <a href="dashboard.html">📊 Paper-Trader-Dashboard</a>
+      <a href="chart.html">📈 Forecast-Chart (4-Panel)</a>
+    </div>
+    <div class="verify">
+      <b>Verifizierbar.</b> Jede Vorhersage wird festgeschrieben, <i>bevor</i> das
+      Ergebnis bekannt ist — und ist nachträglich weder änderbar noch löschbar:
+      <ul style="margin:8px 0 0;padding-left:20px;">
+        <li>Append-only SHA-256-Hash-Chain: <code>ledger.jsonl</code></li>
+        <li>OpenTimestamps (Bitcoin) Anker: <code>ots/</code> — deckt Tail-Truncation</li>
+        <li>Roh-Forecasts + Metriken: <code>copper/&lt;datum&gt;/</code></li>
+      </ul>
+      <div style="margin-top:8px;">Aktueller Head-Hash:
+        <code>b09140499d85588771fcf286…</code></div>
+    </div>
+    <div class="foot">
+      Methodik &amp; Signal-Pipeline sind proprietär und nicht Teil dieser Vorschau.
+      „Commodity Price Intelligence" ist ein Arbeitstitel.
+    </div>
+  </div>
+</body></html>
