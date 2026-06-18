@@ -1,4 +1,4 @@
-# AutoTrader — Tamperproof Prediction Ledger
+# Xommodo — Tamperproof Prediction Ledger
 
 Ein **append-only, manipulationssicherer Track-Record** von Commodity-Preis-Forecasts
 (Flagship: Copper / HG=F). Dieses Repo enthält ausschließlich **veröffentlichte
