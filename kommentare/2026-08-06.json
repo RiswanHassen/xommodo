@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-06",
+  "disclaimer": "HINWEIS: Die folgenden Texte sind KI-generierte Fiktionen zu Informationszwecken. Keine Anlageberatung. DYOR.",
+  "generated_at": "2026-08-07T00:14:03Z",
+  "model": "gemma3:12b",
+  "personas": [
+    {
+      "blurb": "Institutionell, datengetrieben. Sagt, was die Zahlen hergeben — und nicht mehr.",
+      "id": "ANALYST",
+      "label": "Der Analyst",
+      "suffix": null,
+      "text": "Zwei Punkte über die nächsten Wochen bis Monate. Aluminium gibt nach, obwohl das Material physisch knapp ist – der Markt handelt hier nicht mehr die Versorgung, sondern die Zweifel an der industriellen Abnahme. Wer die Knappheit als Preisstütze gerechnet hat, muss diese Annahme zurückstellen, bis wieder Abrufe kommen.\n\nZweitens der Bau: Die Nachfrage aus dem Wiederaufbau zieht an, doch Zuschlagstoffe geben ab. Entweder ist die Aktivität noch nicht in den Bestellungen, oder das Angebot deckt sie mühelos. Der Beleg zur Unterscheidung fehlt derzeit; entsprechend würde ich der Baustory noch keine Preiswirkung zutrauen."
+    },
+    {
+      "blurb": "40 Jahre im physischen Handel. Misst Signale an Lieferketten und langen Zyklen, nicht an Kursen.",
+      "id": "GROSSHAENDLER",
+      "label": "Der Großhändler",
+      "suffix": null,
+      "text": "Zwei Sachen zählen für mich, Horizont ein bis zwei Quartale. Erstens Aluminium: knapp bei normaler Nachfrage, und dazu kaum Meldungen. Das ist die Konstellation, die mich vorsichtig macht, weil eine Enge ohne erkennbaren Auslöser meist aus der Kette kommt, nicht aus dem Handel. Ich würde fragen, wo genau es hakt — Material, Verarbeitung oder Transport. Das liegt mir nicht vor.\n\nZweitens der Wiederaufbau: Nachfrage zieht an, Angebot gerade eben ausgeglichen. Ausgeglichen hält keinen anziehenden Bedarf. Vorlaufzeiten würde ich jetzt beobachten, bevor die Preise es nachbeten. 2008 lief es umgekehrt."
+    }
+  ],
+  "version": "v1"
+}
