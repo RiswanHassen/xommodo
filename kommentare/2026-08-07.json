@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-07",
+  "disclaimer": "HINWEIS: Die folgenden Texte sind KI-generierte Fiktionen zu Informationszwecken. Keine Anlageberatung. DYOR.",
+  "generated_at": "2026-08-08T00:13:57Z",
+  "model": "gemma3:12b",
+  "personas": [
+    {
+      "blurb": "Institutionell, datengetrieben. Sagt, was die Zahlen hergeben — und nicht mehr.",
+      "id": "ANALYST",
+      "label": "Der Analyst",
+      "suffix": null,
+      "text": "Der Wiederaufbau treibt die Baumetalle, und das zeigt sich derzeit vor allem in Kupfer, das mit anziehender Nachfrage im Rücken weiter zulegt. Interessant ist die Divergenz zu den Zuschlagstoffen, die trotz gleicher Nachfragebasis nachgeben – ein Zeichen, dass die frühe Bauphase noch nicht in die volumenintensiven Materialien durchgeschlagen ist. Über die kommenden Wochen bis Monate dürfte sich die Nachfrage von den Metallen in die Massenrohstoffe verlagern, sofern die Projekte in die Umsetzung gehen. Molybdän folgt der Kupferlogik. Beim Rest fehlt ein tragfähiges Bild."
+    },
+    {
+      "blurb": "40 Jahre im physischen Handel. Misst Signale an Lieferketten und langen Zyklen, nicht an Kursen.",
+      "id": "GROSSHAENDLER",
+      "label": "Der Großhändler",
+      "suffix": null,
+      "text": "Ich rede über die nächsten zwei, drei Quartale. Zwei Dinge zählen. Erstens: Nachfrage aus dem Wiederaufbau zieht an, während das Angebot gerade eben reicht. Ausgeglichen heißt bei anziehender Abnahme nichts Gutes, das kippt schnell, sobald jemand Vorräte aufbaut. Zweitens: neue Förderkapazität kommt, aber nicht heute. Bis Material tatsächlich am Bau ankommt, vergehen Quartale, und mir fehlt jeder Hinweis, wie belastbar die Transportwege dahin sind. Genau da liegen die gemeldeten Störungen. Politisch ruhig beruhigt mich wenig — 2008 war vorher auch ruhig. Ich würde fragen, wer heute schon Mengen fest bindet."
+    }
+  ],
+  "version": "v1"
+}
