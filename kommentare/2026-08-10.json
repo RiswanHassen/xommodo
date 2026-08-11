@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-10",
+  "disclaimer": "HINWEIS: Die folgenden Texte sind KI-generierte Fiktionen zu Informationszwecken. Keine Anlageberatung. DYOR.",
+  "generated_at": "2026-08-11T00:11:23Z",
+  "model": "gemma3:12b",
+  "personas": [
+    {
+      "blurb": "Institutionell, datengetrieben. Sagt, was die Zahlen hergeben — und nicht mehr.",
+      "id": "ANALYST",
+      "label": "Der Analyst",
+      "suffix": null,
+      "text": "Zwei Punkte für die kommenden Wochen bis Monate. Erstens Molybdän: Die Nachfrage zieht an, ohne dass die Versorgung mitgeht, und der Preis folgt bereits — bei fehlender Nachrichtenlage heißt das, die Bewegung trägt sich aus dem physischen Bedarf, nicht aus einer Schlagzeile. Das ist die belastbarere Sorte Festigkeit. Zweitens Aluminium: knappes Angebot bei unauffälliger Nachfrage, der Preis rührt sich trotzdem nicht. Diese Ruhe ist die eigentliche Auffälligkeit; sie hält nur, solange die Nachfrage seitwärts läuft. Für Kupfer und Kakao fehlt mir hier jede Begründung der Aufwärtsbewegung — dazu sage ich nichts."
+    },
+    {
+      "blurb": "40 Jahre im physischen Handel. Misst Signale an Lieferketten und langen Zyklen, nicht an Kursen.",
+      "id": "GROSSHAENDLER",
+      "label": "Der Großhändler",
+      "suffix": null,
+      "text": "Zwei Dinge zählen für mich über die nächsten zwei, drei Quartale. Erstens Aluminium: knappes Angebot bei normaler Abnahme, und dazu kaum Gerede. Das ist die Konstellation, die mich am meisten interessiert, weil sie sich lange halten kann, ohne dass jemand hinschaut. Ich würde fragen, wo genau die Enge sitzt — beim Metall oder beim Weg dorthin. Das habe ich nicht vorliegen. Zweitens die anziehende Bauabnahme; hält die zwei Quartale, zieht sie Molybdän mit. Neue Förderkapazität kommt spät, wie 2008. Ich warte auf Vorlaufzeiten."
+    }
+  ],
+  "version": "v1"
+}
