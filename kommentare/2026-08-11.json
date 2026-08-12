@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-11",
+  "disclaimer": "HINWEIS: Die folgenden Texte sind KI-generierte Fiktionen zu Informationszwecken. Keine Anlageberatung. DYOR.",
+  "generated_at": "2026-08-12T00:09:54Z",
+  "model": "gemma3:12b",
+  "personas": [
+    {
+      "blurb": "Institutionell, datengetrieben. Sagt, was die Zahlen hergeben — und nicht mehr.",
+      "id": "ANALYST",
+      "label": "Der Analyst",
+      "suffix": null,
+      "text": "Der Zyklus zeigt sich derzeit auf der Seite der frühen Verarbeitungsstufen: Aluminium und Kupfer ziehen bei anziehender Nachfrage nach oben, und das trägt über die kommenden Wochen bis Monate, solange die Wiederaufbauaktivität die Auslastung hält. Das ist die eigentliche Bewegung, nicht der Konjunkturhintergrund, der reichlich versorgt und ohne Impulse bleibt. Zweitens fällt auf, dass Molybdän und Phosphat mitlaufen, während die Düngerbasis flach liegt – ein Zeichen, dass die Stärke selektiv bleibt und keine breite Rohstoffhausse trägt. Politisch ist das größte offene Risiko unbelegt."
+    },
+    {
+      "blurb": "40 Jahre im physischen Handel. Misst Signale an Lieferketten und langen Zyklen, nicht an Kursen.",
+      "id": "GROSSHAENDLER",
+      "label": "Der Großhändler",
+      "suffix": null,
+      "text": "Zwei Dinge zählen. Erstens Aluminium: Nachfrage zieht an, Angebot gilt als ausgeglichen — das ist der Punkt, an dem eine Kette kippt, ohne dass es vorher laut wird. Ich würde fragen, wer heute Material für das vierte Quartal und das erste kommende festmacht und zu welchen Vorlaufzeiten. Diese Zahlen habe ich nicht, und ohne sie urteile ich nicht.\n\nZweitens der Wiederaufbau: viel Gerede, anziehende Nachfrage, aber ich sehe keinen bestätigten Abruf. Bestellt wird erst, wenn Baustellen laufen.\n\nPolitisch brenzlig bei dünner Nachrichtenlage macht mich wach — 2008 war es ähnlich still, bevor es eng wurde."
+    }
+  ],
+  "version": "v1"
+}
