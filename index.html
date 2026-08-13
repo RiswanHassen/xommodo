@@ -29,6 +29,24 @@
   .gap > summary { cursor:pointer; color:#c9922e; font-weight:600;
                     list-style-position:outside; }
   .gap[open] > summary { margin-bottom:4px; }
+  /* Tageskommentar zwischen Reitern und Verifizierungs-Kasten (Inhaber
+     2026-08-13). Zugeklappt, damit er die Kennzahlen nicht vom Bildschirm
+     schiebt; die Zusammenfassungszeile nennt Datum und Sprecher, sonst waere
+     ein eingeklappter Block von einem fehlenden nicht zu unterscheiden. */
+  .tagkom { background:#fff; border-radius:10px; margin:0 0 16px;
+             box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .tagkom > summary { cursor:pointer; padding:13px 18px; font-size:15px;
+                       font-weight:600; color:#46647d; list-style-position:inside; }
+  .tagkom[open] > summary { border-bottom:1px solid #eef1f4; }
+  .tk-wer { font-weight:400; color:#99a; font-size:13px; margin-left:6px; }
+  .tk-body { padding:4px 18px 16px; }
+  .tk-p { margin-top:12px; }
+  .tk-who { font-size:12px; color:#889; text-transform:uppercase;
+             letter-spacing:.04em; margin-bottom:3px; }
+  /* pre-wrap wie auf der Kommentarseite: die Texte tragen Absatzumbrueche,
+     die HTML sonst zu einem Fliesstext zusammenzieht. */
+  .tk-txt { font-size:14px; line-height:1.65; color:#334; white-space:pre-wrap; }
+  .tk-hint { font-size:12px; color:#99a; margin-top:14px; line-height:1.5; }
   code { background:#eef; padding:1px 5px; border-radius:4px; font-size:12px; }
   .foot { color:#99a; font-size:12px; margin-top:24px; line-height:1.5; }
 </style></head>
@@ -42,8 +60,19 @@
     <div class="nav">
       <a href="dashboard.html">📊 Paper-Trader-Dashboard</a>
       <a href="chart.html">📈 Forecast-Chart (4-Panel)</a>
-      <a href="kommentare.html">💬 Kommentare</a>
+      <a href="kommentare.html">💬 Frühere Kommentare</a>
     </div>
+    
+    <details class="tagkom">
+      <summary>💬 Tageskommentar — 12.08.2026
+        <span class="tk-wer">Der Analyst · Der Großhändler</span></summary>
+      <div class="tk-body"><div class="tk-p"><div class="tk-who">Der Analyst</div><div class="tk-txt">Bemerkenswert ist, dass Kupfer und Molybdän gemeinsam anziehen, während Aluminium sich nicht von der Stelle bewegt. Das spricht gegen eine breite Industrieerholung und für eine Verengung auf die Ecken mit knapperem Materialfluss. Wer die Festigkeit bei Kupfer bisher als Vorlaufindikator für die gesamte Metallseite gelesen hat, sollte das über die kommenden Wochen bis Monate enger fassen.
+
+Der Rückgang bei Zuschlagstoffen passt dazu, deutet aber eher auf nachlassende bauseitige Abnahme. Belastbare Hinweise auf die Ursache fehlen mir hier. Erdgas bleibt ereignislos und gibt derzeit nichts her.</div></div><div class="tk-p"><div class="tk-who">Der Großhändler</div><div class="tk-txt">Erdgas ausgeglichen bei normaler Nachfrage — das trägt über die nächsten Wochen, nicht länger. Zwei Dinge zählen für mich. Erstens die Störungen: Ausgeglichen heißt bei Gas nichts, wenn eine Kette hakt, denn Puffer sind hier dünn und Umleitungen brauchen Vorlauf. Mir fehlt, wo genau es klemmt und wie lange. Zweitens die neue Förderkapazität: entscheidend ist, wann sie physisch abfließen kann, nicht wann sie angekündigt wird. Ohne diese Zeitachse ist die Ruhe kein Urteil, sondern eine Momentaufnahme. Ich würde über zwei, drei Quartale prüfen, ob Nachfrage wirklich normal bleibt.</div></div>
+        <div class="tk-hint">KI-generierter Kommentar, keine Vorhersage und
+          keine Anlageberatung. Der Forecast selbst steht im Ledger.</div>
+      </div>
+    </details>
     <div class="verify">
       <b>Verifizierbar.</b> Jede Vorhersage wird festgeschrieben, <i>bevor</i> das
       Ergebnis bekannt ist — und ist nachträglich weder änderbar noch löschbar:
