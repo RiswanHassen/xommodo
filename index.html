@@ -21,9 +21,14 @@
             padding:11px 18px; border-radius:8px; margin:0 10px 10px 0; font-size:15px; }
   .verify { background:#fff; border-radius:10px; padding:16px 18px; font-size:13px;
              line-height:1.6; box-shadow:0 1px 3px rgba(0,0,0,.08); color:#445; }
-  .gap { background:#fff; border-left:4px solid #c9922e; border-radius:10px;
-          padding:14px 18px; font-size:13px; line-height:1.6; color:#445;
-          box-shadow:0 1px 3px rgba(0,0,0,.08); margin:0 0 20px; }
+  /* Dezent und aufklappbar (Inhaber 2026-08-12): der Vermerk stand vorher als
+     voller Kasten unter dem Stand-Datum. Er gehoert zur Verifizierbarkeit, nicht
+     an den Seitenanfang — sichtbar bleibt er, weil eine unsichtbare Luecke von
+     stillem Weglassen nicht zu unterscheiden waere. */
+  .gap { font-size:12px; line-height:1.6; color:#667; margin:10px 0 0; }
+  .gap > summary { cursor:pointer; color:#c9922e; font-weight:600;
+                    list-style-position:outside; }
+  .gap[open] > summary { margin-bottom:4px; }
   code { background:#eef; padding:1px 5px; border-radius:4px; font-size:12px; }
   .foot { color:#99a; font-size:12px; margin-top:24px; line-height:1.5; }
 </style></head>
@@ -32,16 +37,8 @@
     <h1><img src="assets/mark-black.svg" alt="X" class="xmark">ommodo <span style="color:#889;font-weight:400;">— Copper · Preview</span></h1>
     <div class="tag">Vorlaufende, schwache Upstream-Signale → Commodity-Preis-Forecast.
       Un-fälschbarer, zeitgestempelter Live-Track-Record. Kostenlose Vorschau,
-      Stand 2026-08-11.</div>
-    <div class="gap">
-      <b>Dokumentierte Lücke im Track Record.</b>
-      <ul style="margin:8px 0 0;padding-left:20px;"><li><b>27.07.2026 – 06.08.2026</b> · Ledger-Eintrag <code>seq 40</code><br><span style="color:#667;">Ausfall der Erfassungs-Infrastruktur; keine Vorhersagen erzeugt</span></li></ul>
-      <div style="margin-top:8px;">Jede Lücke steht als Eintrag in derselben
-      Hash-Chain wie die Vorhersagen und ist damit nachträglich weder entfernbar
-      noch verkürzbar. Vorhersagen für einen vergangenen Zeitraum nachzureichen
-      wäre wertlos — die Lücke bleibt deshalb sichtbar.</div>
-    </div>
-    <div class="cards"><div class="card"><div class="lbl">Guthaben (Sim)</div><div class="val">$23,497</div><div class="sub">Start $10,000</div></div><div class="card"><div class="lbl">Profit (Sim)</div><div class="val">+135.0%</div><div class="sub">$+13,497</div></div><div class="card"><div class="lbl">vs Buy-and-Hold</div><div class="val">+74.5 pp</div><div class="sub">BAH +60.5%</div></div><div class="card"><div class="lbl">Zeitraum</div><div class="val">1293 Tage</div><div class="sub">bis 2026-08-10</div></div><div class="card"><div class="lbl">Verankerte Predictions</div><div class="val">45</div><div class="sub">46 Ledger-Einträge</div></div><div class="card"><div class="lbl">Letzter Forecast</div><div class="val">2026-08-11</div><div class="sub">q10/q50/q90 · 10 Tage</div></div></div>
+      Stand 2026-08-12.</div>
+    <div class="cards"><div class="card"><div class="lbl">Guthaben (Sim)</div><div class="val">$23,497</div><div class="sub">Start $10,000</div></div><div class="card"><div class="lbl">Profit (Sim)</div><div class="val">+135.0%</div><div class="sub">$+13,497</div></div><div class="card"><div class="lbl">vs Buy-and-Hold</div><div class="val">+74.6 pp</div><div class="sub">BAH +60.3%</div></div><div class="card"><div class="lbl">Zeitraum</div><div class="val">1294 Tage</div><div class="sub">bis 2026-08-11</div></div><div class="card"><div class="lbl">Verankerte Predictions</div><div class="val">46</div><div class="sub">47 Ledger-Einträge</div></div><div class="card"><div class="lbl">Letzter Forecast</div><div class="val">2026-08-12</div><div class="sub">q10/q50/q90 · 10 Tage</div></div></div>
     <div class="nav">
       <a href="dashboard.html">📊 Paper-Trader-Dashboard</a>
       <a href="chart.html">📈 Forecast-Chart (4-Panel)</a>
@@ -56,7 +53,15 @@
         <li>Roh-Forecasts + Metriken: <code>copper/&lt;datum&gt;/</code></li>
       </ul>
       <div style="margin-top:8px;">Aktueller Head-Hash:
-        <code>c7c4c217cc541a317a7bbd13…</code></div>
+        <code>9b30261818f0afc94f168387…</code></div>
+    <details class="gap">
+      <summary>1 dokumentierte Lücke im Track Record</summary>
+      <ul style="margin:8px 0 0;padding-left:20px;"><li><b>27.07.2026 – 06.08.2026</b> · Ledger-Eintrag <code>seq 40</code><br><span style="color:#667;">Ausfall der Erfassungs-Infrastruktur; keine Vorhersagen erzeugt</span></li></ul>
+      <div style="margin-top:8px;">Jede Lücke steht als Eintrag in derselben
+      Hash-Chain wie die Vorhersagen und ist damit nachträglich weder entfernbar
+      noch verkürzbar. Vorhersagen für einen vergangenen Zeitraum nachzureichen
+      wäre wertlos — die Lücke bleibt deshalb sichtbar.</div>
+    </details>
     </div>
     <div class="foot">
       Xommodo — Commodity Price Intelligence. Methodik &amp; Signal-Pipeline
