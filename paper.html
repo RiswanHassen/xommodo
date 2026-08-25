@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vorregistriert, zeitgestempelt, ergebnislos — Xommodo</title>
+<meta name="description" content="7.825 getestete Kombinationen, kein Survivor. Und drei Wege, auf denen ein System für Nachprüfbarkeit trotzdem in die Irre führt.">
+<meta name="author" content="Riswan Hassen">
+<link rel="canonical" href="https://xommodo.com/paper.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Xommodo">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://xommodo.com/paper.html">
+<meta property="og:title" content="Vorregistriert, zeitgestempelt, ergebnislos">
+<meta property="og:description" content="7.825 getestete Kombinationen, kein Survivor. Und drei Wege, auf denen ein System für Nachprüfbarkeit trotzdem in die Irre führt.">
+<meta property="og:image" content="https://xommodo.com/og/xommodo-paper.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vorregistriert, zeitgestempelt, ergebnislos — Nullergebnis-Bericht">
+<meta property="article:author" content="https://orcid.org/0009-0001-4173-2836">
+<meta property="article:published_time" content="2026-08-25">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vorregistriert, zeitgestempelt, ergebnislos">
+<meta name="twitter:description" content="7.825 getestete Kombinationen, kein Survivor. Und drei Wege, auf denen ein System für Nachprüfbarkeit trotzdem in die Irre führt.">
+<meta name="twitter:image" content="https://xommodo.com/og/xommodo-paper.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { --ink:#222; --muted:#667; --faint:#99a; --line:#e3e8ee;
+          --accent:#46647d; --gold:#c9922e; --bg:#f4f6f8; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { font-family:-apple-system,Segoe UI,Roboto,sans-serif; margin:0;
+         background:var(--bg); color:var(--ink); }
+  .disclaimer { background:#fff3cd; border-bottom:2px solid #e0a800; color:#664d03;
+                padding:12px 16px; font-size:13px; line-height:1.55; text-align:center; }
+  .wrap { max-width:820px; margin:0 auto; padding:24px 16px 64px; }
+  .back { display:inline-block; color:var(--accent); text-decoration:none;
+          font-size:14px; margin-bottom:18px; }
+  .back:hover { text-decoration:underline; }
+  .xmark { height:1.05em; vertical-align:-0.16em; margin-right:1px; }
+  .paper { background:var(--card); border-radius:10px; padding:34px 38px 40px;
+           box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .paper h1 { font-size:27px; line-height:1.25; margin:0 0 10px; }
+  .paper h2 { font-size:19px; line-height:1.35; margin:34px 0 10px;
+              padding-top:16px; border-top:1px solid var(--line); }
+  /* Der erste h2 ist der Untertitel, keine Abschnittsueberschrift: groesser,
+     leiser, ohne Trennlinie. Sonst liest er sich wie ein Kapitel. */
+  .paper h2:first-of-type { border-top:none; padding-top:0; font-size:17.5px;
+                            font-weight:500; color:var(--muted); line-height:1.5;
+                            margin:0 0 18px; }
+  .paper h1 + h2 + p { color:var(--muted); font-size:14.5px; line-height:1.6; }
+  .paper h3 { font-size:16px; margin:24px 0 8px; color:#334; }
+  .paper p { line-height:1.72; margin:0 0 14px; }
+  .paper li { line-height:1.7; margin-bottom:7px; }
+  .paper strong { font-weight:650; }
+  .paper hr { border:none; border-top:1px solid var(--line); margin:30px 0; }
+  .paper blockquote { margin:16px 0; padding:12px 18px; background:#f7f9fb;
+                      border-left:4px solid var(--gold); border-radius:0 8px 8px 0;
+                      color:#445; font-size:14.5px; line-height:1.65; }
+  .paper blockquote p:last-child { margin-bottom:0; }
+  .paper code { background:#eef1f5; padding:1.5px 5px; border-radius:4px;
+                font-size:13px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .paper a { color:var(--accent); }
+  /* Tabellen scrollen in ihrem eigenen Kasten, damit die Seite nie quer laeuft. */
+  .tbl { overflow-x:auto; margin:16px 0 18px; }
+  .paper table { border-collapse:collapse; width:100%; font-size:14px; }
+  .paper th, .paper td { text-align:left; padding:8px 12px;
+                         border-bottom:1px solid var(--line); vertical-align:top; }
+  .paper th { color:var(--muted); font-size:12.5px; text-transform:uppercase;
+              letter-spacing:.03em; font-weight:600; white-space:nowrap; }
+  .paper tbody tr:last-child td { border-bottom:none; }
+  .meta { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 4px; }
+  .toc { background:#f7f9fb; border-radius:8px; padding:16px 20px; margin:24px 0 8px;
+         font-size:14px; }
+  .toc-h { font-size:12px; color:var(--muted); text-transform:uppercase;
+           letter-spacing:.04em; margin-bottom:8px; }
+  .toc ol { margin:0; padding-left:20px; }
+  .toc li { margin-bottom:4px; }
+  .toc a { color:#334; text-decoration:none; }
+  .toc a:hover { color:var(--accent); text-decoration:underline; }
+  .foot { color:var(--faint); font-size:12px; margin-top:22px; line-height:1.6;
+          text-align:center; }
+  @media (max-width:640px) { .paper { padding:22px 18px 28px; }
+                             .paper h1 { font-size:23px; } }
+  @media print {
+    body { background:#fff; } .disclaimer, .back, .toc { display:none; }
+    .paper { box-shadow:none; padding:0; }
+    .paper h2 { page-break-after:avoid; } .tbl { overflow:visible; }
+  }
+</style></head>
+<body>
+<div class="disclaimer"><b>Research-Demonstration — keine Anlageberatung.</b> Reine Forschungs-Demo, keine Handelsempfehlung, keine Gewähr. Simulierte und historische Ergebnisse sind kein Indikator für künftige Resultate.<br><span style="opacity:.75"><b>Research demonstration — not investment advice.</b> Research only, no recommendation, no warranty. Simulated and past results are not indicative of future performance.</span></div>
+<div class="wrap">
+  <a class="back" href="index.html">← <img src="assets/mark-black.svg" alt="X" class="xmark">ommodo</a>
+  <article class="paper">
+<h1>Vorregistriert, zeitgestempelt, ergebnislos</h1>
+<h2 id="ein-bericht-ueber-nullergebnisse-bei-schwachen-vorlaufsignalen-fuer-commodity-preise-und-ueber-drei-wege-auf-denen-ein-system-fuer-nachpruefbarkeit-trotzdem-in-die-irre-fuehrt">Ein Bericht über Nullergebnisse bei schwachen Vorlaufsignalen für Commodity-Preise — und über drei Wege, auf denen ein System für Nachprüfbarkeit trotzdem in die Irre führt</h2>
+<p><strong>Riswan Hassen</strong> · ORCID <a href="https://orcid.org/0009-0001-4173-2836">0009-0001-4173-2836</a>
+Fassung vom 2026-08-25</p>
+<blockquote>
+<p><strong>Maßgeblich ist die englische Fassung.</strong> Sie trägt die DOI, liegt auf Zenodo
+unveränderlich versioniert vor und geht dieser Übersetzung bei jeder Abweichung
+vor. Diese Seite gibt denselben Inhalt für die Leserschaft wieder, die den
+Ledger mitverfolgt hat.
+DOI: <em>(wird nachgetragen)</em> · Reproduktionspaket im selben Zenodo-Eintrag.</p>
+</blockquote>
+<nav class="toc"><div class="toc-h">Inhalt</div><ol style="list-style:none;padding-left:0"><li><a href="#1-die-frage-und-der-anspruch">1. Die Frage und der Anspruch</a></li><li><a href="#2-der-apparat-der-nachpruefbarkeit">2. Der Apparat der Nachprüfbarkeit</a></li><li><a href="#3-die-methode-und-die-stelle-an-der-sie-brach">3. Die Methode — und die Stelle, an der sie brach</a></li><li><a href="#4-kontrollen-und-wie-wir-lernten-sie-zu-lesen">4. Kontrollen — und wie wir lernten, sie zu lesen</a></li><li><a href="#5-ergebnisse">5. Ergebnisse</a></li><li><a href="#6-die-entscheidung">6. Die Entscheidung</a></li><li><a href="#7-was-die-kette-nicht-schuetzte">7. Was die Kette nicht schützte</a></li><li><a href="#8-befunde-die-anderen-nuetzen">8. Befunde, die anderen nützen</a></li><li><a href="#9-grenzen">9. Grenzen</a></li><li><a href="#10-reproduktion">10. Reproduktion</a></li></ol></nav><hr />
+<h2 id="kurzfassung">Kurzfassung</h2>
+<p>Zwischen März und August 2026 hat das Projekt Xommodo untersucht, ob schwache,
+öffentlich verfügbare Vorlaufsignale Commodity-Preise vorhersagen können — und
+sich vorab darauf festgelegt, diese Frage so zu beantworten, dass eine Leserin es
+nachprüfen kann, statt es glauben zu müssen. Jede Hypothese wurde in ein Register
+eingetragen, bevor sie getestet wurde; jede Tagesprognose ging in eine
+append-only-Kette mit SHA-256-Verkettung und wurde über OpenTimestamps in der
+Bitcoin-Blockchain verankert, bevor das Ergebnis bekannt war.</p>
+<p>Die Antwort lautet nein. Über zehn vorregistrierte Läufe nach einer
+Methodenkorrektur mitten im Projekt — neun Screening-Durchgänge und eine Studie zu
+nachrichtenbasierten Merkmalen, zusammen 7.825 Kombinationen aus Serie und Lag —
+hat kein einziger Kandidat das vorregistrierte Kriterium überstanden. Ein
+vorregistrierter Attributionstest verfehlte seine primäre Schwelle um 0,023, und
+das Projekt wurde eingestellt, wie es die vorher niedergeschriebene
+Entscheidungsregel verlangte.</p>
+<p>Drei Befunde reichen über dieses Projekt hinaus. <strong>Erstens</strong> hat eine von uns
+absichtlich gepflanzte Placebokontrolle — die Mondphase — die Bonferroni-Korrektur
+bestanden. Das legte offen, dass Pearson-Lag-Korrelationen auf autokorrelierten
+Reihen nicht interpretierbar sind, und entwertete unsere eigene erste
+Screening-Phase. <strong>Zweitens</strong> half eine synthetische Kontrolle, als eine
+ökonomische Positivkontrolle versagte, zwischen einer kaputten Methode und einer
+bloß auf die falsche Anlageklasse kalibrierten Kontrolle zu unterscheiden; die
+Korrektur wurde als eigener Registereintrag abgelegt, statt den ursprünglichen zu
+ändern. <strong>Drittens</strong>, und am wenigsten erwartet: unser manipulationssicherer
+Ledger verzeichnete 46 von 46 Prognosen als bestandene Qualitätsprüfung, während
+die Equity-Kurve auf unserer öffentlichen Seite einbrach und danach einfror. Die
+Kette wurde nie verletzt. Sie besicherte schlicht nicht die Größe, die unsere
+Leserschaft las.</p>
+<p><strong>Schlagwörter:</strong> Nullergebnisse, Vorregistrierung, Mehrfachvergleiche,
+Autokorrelation, manipulationssichere Veröffentlichung, Commodity-Prognose,
+Reproduzierbarkeit</p>
+<hr />
+<h2 id="1-die-frage-und-der-anspruch">1. Die Frage und der Anspruch</h2>
+<p>Die Frage war eng gefasst: Können schwache, öffentlich verfügbare Upstream-Signale
+— Minenwetter, Frachtfriktion, Flusspegel, Nachrichtenfluss — einen Commodity-Preis
+weit genug vorlaufen, um nützlich zu sein, und lässt sich das zeigen statt
+behaupten?</p>
+<p>Die zweite Hälfte der Frage war der Punkt. Behauptungen über Prognosegüte an
+Rohstoffmärkten sind billig, weil sie fast immer im Nachhinein aufgestellt werden,
+auf einem Protokoll, das der Behauptende selbst kontrolliert. Wir haben den
+Apparat deshalb vor der Forschung gebaut: ein Register, in das ein Test
+eingetragen sein musste, bevor er lief, und eine Veröffentlichungskette, die eine
+Prognose in dem Moment unveränderlich machte, in dem sie entstand. Das Projekt hat
+im Voraus akzeptiert, dass dieser Apparat gegen uns arbeiten würde, falls die
+Antwort nein lautet.</p>
+<p>Sie lautete nein, und dieser Bericht ist die Folge jener Zusage. Nullergebnisse
+werden selten veröffentlicht; genau deshalb veröffentlichen wir dieses. Der
+nützlichere Beitrag sind allerdings nicht die Nullergebnisse selbst. Es sind die
+drei Weisen, auf denen sorgfältig wirkende Maschinerie dennoch fehlging — jede
+davon nur sichtbar, weil die Maschinerie genug aufzeichnete, um sich selbst zu
+ertappen.</p>
+<hr />
+<h2 id="2-der-apparat-der-nachpruefbarkeit">2. Der Apparat der Nachprüfbarkeit</h2>
+<h3 id="2-1-das-register">2.1 Das Register</h3>
+<p>Jede Hypothese wurde in <code>docs/experiments.jsonl</code> eingetragen, bevor sie getestet
+wurde, mit Hypothesentext, Geltungsbereich, der Anzahl zu testender Kombinationen
+und einem UTC-Zeitstempel. Verdikte kamen nach dem Lauf hinzu. Das Register
+umfasst 27 Einträge zwischen 2026-07-07 und 2026-08-13.</p>
+<p>Registereinträge wurden nie rückwirkend geändert. Wo eine spätere Analyse eine
+frühere Lesart umstieß, wurde die Korrektur als eigener Eintrag angehängt, der auf
+den ursprünglichen verweist (§ 4.3). Das ist die einzige Disziplin, die ein
+Register überhaupt wertvoll macht: Eine Datei, die sich nachträglich aufräumen
+lässt, zeichnet nichts auf.</p>
+<h3 id="2-2-der-ledger">2.2 Der Ledger</h3>
+<p>Jede Tagesprognose ging als append-only-Eintrag in <code>ledger.jsonl</code>, mit
+Sequenznummer, Commodity, Prognosedatum, SHA-256-Prüfsummen der Prognose- und
+Metrikdateien, Modellversion, einem Qualitäts-Flag und dem Hash des
+Vorgängereintrags. Die Kette wird periodisch über OpenTimestamps in Bitcoin
+verankert.</p>
+<p>Die veröffentlichte Kette hält 47 Einträge für den Zeitraum 2026-06-08 bis
+2026-08-12: 46 Prognosen und einen Ausfalleintrag. Eintrag 40 dokumentiert den
+Ausfall der Erfassungsinfrastruktur vom 2026-07-27 bis 2026-08-06 — elf Tage, an
+denen keine Prognosen entstanden. Er trägt seinen eigenen <code>prev_chain_hash</code> und
+seinen eigenen Zeitstempel-Anker.</p>
+<p>Dass die Lücke <em>in</em> der Kette steht statt in ihr zu fehlen, ist für sich genommen
+ein kleines Ergebnis. Ein Loch von elf Tagen ist das Verlockendste, was sich aus
+einem öffentlichen Track Record stillschweigend weglassen ließe, und eine Kette,
+die ihre eigenen Unterbrechungen festhält, ist mehr wert als eine, die nur
+Erfolge verzeichnet.</p>
+<h3 id="2-3-was-die-kette-garantiert-und-was-nicht">2.3 Was die Kette garantiert — und was nicht</h3>
+<p>Die Konstruktion erkennt Feldmanipulation, gefälschte Kettenhashes, gelöschte
+Einträge und Umsortierung. Das Abschneiden am Ende — ein Angreifer entfernt die
+jüngsten Einträge und legt eine kürzere, in sich stimmige Kette vor — liegt
+außerhalb ihres Umfangs und wird nur teilweise durch die externen
+Bitcoin-Anker abgedeckt.</p>
+<p>Abschnitt 7 dokumentiert eine Grenze, mit der wir nicht gerechnet hatten und die
+keine Hash-Kette adressiert: Die Kette besichert die <em>Prognosen</em>. Sie besichert
+keine daraus abgeleitete Kennzahl, und sie sagt nichts darüber, <strong>welche</strong> Größe
+eine Qualitätsprüfung misst.</p>
+<hr />
+<h2 id="3-die-methode-und-die-stelle-an-der-sie-brach">3. Die Methode — und die Stelle, an der sie brach</h2>
+<h3 id="3-1-der-erste-ansatz-und-die-placebokontrolle">3.1 Der erste Ansatz und die Placebokontrolle</h3>
+<p>Das Screening begann als Lag-Korrelationssuche: für jede Kandidatenreihe und jeden
+Lag die Pearson-Korrelation mit dem Vorwärtsreturn des Ziels, mit
+Bonferroni-Korrektur über die Suche.</p>
+<p>Unter den Kandidaten stand einer, von dem wir Bedeutungslosigkeit erwarteten.
+Registereintrag 5 prüfte, ob die Mondphase — Beleuchtungsgrad und Länge des
+Dunkelfensters — dem Kupferpreis vorläuft. Er war ausdrücklich als
+Placebokontrolle eingetragen. Es gab eine nominelle Erzählung dazu, doch seine
+Funktion im Versuchsaufbau war, zu scheitern.</p>
+<h3 id="3-2-er-scheiterte-nicht">3.2 Er scheiterte nicht</h3>
+<p>Registereintrag 12 prüfte jeden Screening-Treffer des Exotic-Blocks mit einem
+Circular-Shift-Permutationstest nach. Das Ergebnis, wörtlich:</p>
+<blockquote>
+<p>Pearson-p unbrauchbar bei Autokorrelation (Placebo Mond passierte Bonferroni!);
+nach Shift-Test alle spurious außer <code>windgusts_calama@20d</code> p=.024 und
+<code>moon_dark@68d</code> p=.033 (überleben die ×14-Korrektur nicht).</p>
+</blockquote>
+<p>Die gepflanzte Placebokontrolle hatte eine Bonferroni-korrigierte Prüfung
+bestanden. Unter dem Shift-Test bestand sonst nichts von Substanz.</p>
+<p>Die Ursache ist unspektakulär. Eine Pearson-Korrelation zwischen zwei stark
+autokorrelierten Reihen hat weit weniger effektive Freiheitsgrade, als ihr
+Stichprobenumfang nahelegt; der nominelle p-Wert ist entsprechend zu optimistisch,
+und eine Bonferroni-Korrektur auf diese nominellen Werte erbt den Optimismus. Eine
+Korrektur für Mehrfachtests richtet nichts aus gegen eine Teststatistik, deren
+Nullverteilung von vornherein falsch ist.</p>
+<p>Das steht in jedem Lehrbuch. Wir wussten es im Abstrakten und haben trotzdem eine
+Screening-Pipeline ausgeliefert, die davon abhing. Den Unterschied machte nicht
+Wissen, sondern die Placebokontrolle: ein erwartetes Negativergebnis im
+Kandidatensatz, das ein abstraktes methodisches Risiko in ein konkretes,
+datiertes, unbestreitbares Versagen verwandelte.</p>
+<p><strong>Als Entwurfsregel formuliert:</strong> Eine Screening-Pipeline sollte mindestens einen
+Kandidaten führen, der nicht gefunden werden darf. Sein Zweck ist nicht, geprüft
+zu werden, sondern die Pipeline zu prüfen — und er kostet eine Zeile in der
+Kandidatenmatrix.</p>
+<h3 id="3-3-was-verworfen-wurde">3.3 Was verworfen wurde</h3>
+<p>Die naive Phase — Registereinträge 1 bis 15, 3.390 Kombinationen — ist als Beleg
+wertlos. Sie erscheint in diesem Bericht als Lehrstück und nirgends als Ergebnis.
+Sämtliche Befunde in § 5 stammen aus Läufen nach dem Methodenwechsel.</p>
+<h3 id="3-4-die-korrigierte-methode">3.4 Die korrigierte Methode</h3>
+<p>Ab Eintrag 16 arbeitete das Screening mit einem scan-aware
+Circular-Shift-Permutationstest, NS = 1.000 Surrogate, Bonferroni-Korrektur über
+die Serien des jeweiligen Laufs, und mit einer Positivkontrolle in jedem Lauf.</p>
+<hr />
+<h2 id="4-kontrollen-und-wie-wir-lernten-sie-zu-lesen">4. Kontrollen — und wie wir lernten, sie zu lesen</h2>
+<h3 id="4-1-die-oekonomische-kontrolle-und-ihre-zwei-fehlschlaege">4.1 Die ökonomische Kontrolle und ihre zwei Fehlschläge</h3>
+<p>Die Positivkontrolle war <code>industrial_production_us</code>: eine Reihe, die einem
+Industriemetall vorlaufen sollte. Sie versagte zweimal.</p>
+<p>In Eintrag 22, beim Test hydrologischer Speichersignale gegen Kupfer bei längeren
+Horizonten, versagte sie bei h = 40 (p = 0,130) und h = 60 (p = 0,126) — genau in
+den Läufen mit den größten Rohkorrelationen. Der Lauf wurde als verdächtig
+markiert.</p>
+<p>In Eintrag 23, beim Test von Weizen-Wettersignalen, versagte sie deutlich
+(p = 0,396). Eine Sichtprüfung der Rohdaten zeigte korrekte Klimaregimes —
+australischer Winterregen, argentinischer Sommerregen, ausgeglichenes Frankreich —
+die Zuordnung war also intakt.</p>
+<h3 id="4-2-die-synthetische-kontrolle">4.2 Die synthetische Kontrolle</h3>
+<p>Die Diagnose in Eintrag 23 lautete, dass die Kontrolle auf die falsche Frage
+kalibriert war. Industrieproduktion führt ein Industriemetall; sie hat einem
+Agrargut nichts vorzulaufen. Ein Versagen dieser Kontrolle ist eine ökonomische
+Aussage, keine methodische — und beide sind ohne eine Kontrolle, die von keiner
+Ökonomie abhängt, nicht auseinanderzuhalten.</p>
+<p>Eintrag 25 führte eine solche ein: ein synthetisches Signal, konstruiert so, dass
+es den Ziel-Return bei bekanntem Lag von 41 Tagen trägt, plus Rauschen kalibriert
+auf r ≈ 0,20. Die Methode findet es bei h = 5, 20, 40 und 60 wieder, mit
+r = +0,196 bis +0,221, jeweils bei exakt 41 Tagen, durchgehend p = 0,0025.</p>
+<p>Die Methode war damit bei allen Horizonten tragfähig, und die Ergebnisse aus
+Eintrag 22 sind interpretierbar — entgegen der dort selbst notierten Warnung.</p>
+<h3 id="4-3-die-korrektur-und-ihre-ablage">4.3 Die Korrektur und ihre Ablage</h3>
+<p>Eintrag 22 wurde <strong>nicht</strong> geändert. Eintrag 25 kam als Korrektur hinzu, die auf
+ihn verweist. Der Befund aus Eintrag 22 wird durch die Korrektur <em>stärker</em> statt
+schwächer: null Survivor bei jedem Horizont, und die monoton steigende Korrelation
+von <code>ch_groundwater_index</code> (+0,097 bei h=10 bis +0,192 bei h=60) ist ein
+Überlappungsartefakt — der rohe p-Wert bleibt durchgehend nahe 0,5, während die
+Return-Überlappung die effektive Stichprobe verkleinert.</p>
+<p>Ein Register, das durch Anhängen korrigiert wird, hält Fehler und Reparatur
+lesbar. Ein Register, das durch Überschreiben korrigiert wird, hält keins von
+beidem.</p>
+<hr />
+<h2 id="5-ergebnisse">5. Ergebnisse</h2>
+<h3 id="5-1-die-screening-bilanz">5.1 Die Screening-Bilanz</h3>
+<p>Das Register führt 18 Screening-Einträge. Neun gehören zur entwerteten naiven
+Phase (§ 3.3) und bleiben hier außen vor. Die neun korrigierten Durchgänge
+umfassen 4.171 Kombinationen aus Serie und Lag; zusammen mit der Nachrichtenstudie
+aus § 5.3 (3.654 Kombinationen) sind das <strong>zehn Läufe über 7.825 Kombinationen mit
+null Survivorn</strong>. Alle neun Durchgänge, dazu die Nachrichtenstudie zum Vergleich:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Eintrag</th>
+<th>Bereich</th>
+<th>Kombinationen</th>
+<th>Bester Rohbefund</th>
+<th>Survivor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>API monatlich, China/Ozeanien</td>
+<td>44</td>
+<td><code>semi_billings_worldwide</code> r=+0,039@75d, p_bonf=1,000</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Disruption täglich, 26 Serien</td>
+<td>754</td>
+<td><code>temperature_2m_max_yangtze_delta_cn</code> r=+0,102@89d, p_bonf=0,811</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>18</td>
+<td>US-Bahnfriktion (STB EP724)</td>
+<td>88</td>
+<td><code>rail_dwell_us</code> r=−0,118@140d, p_bonf=0,667</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Peruanische Bahnfracht (Ositran)</td>
+<td>44</td>
+<td><code>rail_freight_peru_fso</code> r=+0,084@130d, p_bonf=0,178</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>20</td>
+<td>EU-KFZ-Zulassungen (EZB)</td>
+<td>22</td>
+<td><code>car_registrations_ea</code> r=−0,067@60d, p_bonf=0,214</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Hydro-Speicher + Rheinpegel, h=5</td>
+<td>319</td>
+<td><code>ch_groundwater_index</code> r=+0,071@80d, p_bonf=1,000</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>22</td>
+<td>dieselben, Horizont-Scan h=10/20/40/60</td>
+<td>1.276</td>
+<td>siehe § 4.3</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>23/24</td>
+<td>Weizen-Wetter, 28 Signale, 7 Regionen</td>
+<td>812</td>
+<td><code>wheat_precip_ar_pampas</code> r=+0,096@26d, p_bonf=0,168</td>
+<td>keine</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Nachrichten-Punktewolke, 21 Ziele</td>
+<td>3.654</td>
+<td><code>dax:wolke_verschiebung</code> r=−0,081@17d, p_bonf=0,180</td>
+<td>keine</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Zur Zahl 7.825.</strong> Sie zählt Kombinationen aus Serie und Lag, keine unabhängigen
+Hypothesen. Benachbarte Lags derselben Serie hängen stark zusammen, die effektive
+Zahl unabhängiger Tests ist also weit kleiner. Wir führen die Zahl als Maß für die
+Suchbreite und ausdrücklich nicht als inferenzielle Größe.</p>
+<h3 id="5-2-gegenbeweise-aus-den-daten-selbst">5.2 Gegenbeweise aus den Daten selbst</h3>
+<p>Zwei innere Widersprüche haben zur hydrologischen Frage mehr beigetragen als jeder
+p-Wert.</p>
+<p><code>ch_groundwater_index</code> (r = +0,19) und <code>edo_lowflow_water_index</code> (r = −0,12) sind
+auf dieselbe Leserichtung normiert und messen dasselbe Einzugsgebiet. Sie tragen
+entgegengesetzte Vorzeichen. Zwei Instrumente, die auf dieselbe physikalische
+Größe zeigen und in der Richtung uneins sind, berichten Rauschen — unabhängig von
+ihren Einzelkorrelationen.</p>
+<p>Im Weizenlauf erreichten <code>wheat_precip_ar_pampas</code> (r = +0,096@26d) und
+<code>wheat_water_deficit_ar_pampas</code> (r = −0,087@26d) beide p_raw = 0,006. Das sind
+keine zwei Belege. Wasserdefizit ist Evapotranspiration minus Niederschlag; beide
+Reihen messen eine Größe und müssen konstruktionsbedingt gegenläufig sein. Sie
+getrennt zu zählen hätte einen schwachen Befund verdoppelt.</p>
+<p>Eintrag 22 schließt mit der sachlichen Lesart: Ein Vorlauf auf den
+COMEX-Kupferpreis ist nicht nachweisbar, weil der Transportkostenanteil bei Kupfer
+wenige Prozent beträgt — zu klein, als dass ein Frachtfriktionssignal
+durchschlagen könnte. Diese Überlegung führte dazu, dieselbe Kette an Diesel zu
+prüfen, wo der Anteil groß ist; jene Spur wurde umrissen, aber nie begonnen.</p>
+<h3 id="5-3-nachrichtenmerkmale-null-eintrag-26">5.3 Nachrichtenmerkmale: null (Eintrag 26)</h3>
+<p>Die größte Einzelstudie. Sechs vorregistrierte Form- und Richtungsmerkmale,
+berechnet über tägliche Punktewolken aus Schlagzeilen-Embeddings (K = 8
+Schlagzeilen pro Tag, mxbai-embed-large, 75.244 tagesdatierte GDELT-Schlagzeilen
+2017–2025), geprüft gegen den 5-Tage-Vorwärtsreturn von neun Basket-Commodities,
+drei Indizes und neun S&amp;P-residualisierten Reihen. 3.654 Kombinationen, NS = 400,
+Bonferroni je Ziel, synthetische Kontrolle bei 21 von 21 Zielen bestanden.</p>
+<p><strong>Kein Kandidat erfüllte das vorregistrierte Kriterium</strong> (p_bonf &lt; 0,05 im
+Residual bei mindestens zwei Commodities, ohne Anschlag beim S&amp;P selbst). Die drei
+stärksten:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ziel</th>
+<th>Merkmal</th>
+<th>r</th>
+<th>Lag</th>
+<th>p_bonf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAX</td>
+<td>Wolken-Verschiebung</td>
+<td>−0,081</td>
+<td>17d</td>
+<td>0,180</td>
+</tr>
+<tr>
+<td>S&amp;P 500</td>
+<td>Wolken-Verschiebung</td>
+<td>−0,084</td>
+<td>17d</td>
+<td>0,195</td>
+</tr>
+<tr>
+<td>Aggregate-Residual</td>
+<td>Wolken-Verschiebung</td>
+<td>+0,085</td>
+<td>17d</td>
+<td>0,269</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ein nicht signifikantes Muster ist festzuhalten, weil es <strong>vorher angekündigt
+war</strong>. Die Vorregistrierung (§ 4.1 des Scope-Dokuments) hatte erwartet: Falls das
+Verschiebungsmerkmal etwas trägt, dann Makro-Aufmerksamkeit statt
+commodity-spezifischer Information. Der beste Wert des Merkmals liegt beim DAX,
+beim S&amp;P 500 und beim Dow gleichzeitig auf demselben Lag von 17 Tagen — genau die
+Signatur, die die Vorregistrierung beschrieb. Er ist nicht signifikant, und wir
+leiten nichts daraus ab. Wir berichten ihn, weil ein vorher benanntes und dann
+beobachtetes Muster als Protokoll mehr wert ist, als dasselbe Muster im Nachhinein
+gefunden als Ergebnis wert wäre.</p>
+<h3 id="5-4-attribution-neutral-eintrag-27">5.4 Attribution: neutral (Eintrag 27)</h3>
+<p>Der abschließende Test fragte, ob die Nachrichten-Dimension über technische
+Merkmale hinaus etwas beiträgt: identische Pipeline, identische Daten, eine
+Konfiguration mit und eine ohne Nachrichtenmerkmale, ausgewertet nach der
+Datenreparatur und dem Zeitachsen-Backfill.</p>
+<p>Vorregistriert in <code>docs/research_news_attribution.md</code>, committet als <code>7c13188</code> vor
+dem Lauf. Die Entscheidungsregel des Inhabers wurde getrennt als <code>2671340</code>
+committet, ebenfalls bevor das Ergebnis bekannt war.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Endpunkt</th>
+<th>Ergebnis</th>
+<th>Schwelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primär</strong> — Trader-Ebene</td>
+<td>diff = +2,6 bp/Tag, Block-Bootstrap p = <strong>0,1227</strong>, einseitig</td>
+<td>α = 0,10 — <strong>verfehlt</strong></td>
+</tr>
+<tr>
+<td><strong>Sekundär</strong> — Pinball-Verlust</td>
+<td>diff = −1,36 × 10⁻⁴, p = <strong>0,0937</strong></td>
+<td>bestanden</td>
+</tr>
+</tbody>
+</table></div>
+<p>Backtest-Zusammenhang auf demselben Fenster: die Konfiguration mit Nachrichten
+erzielte +57,0 % (Sharpe 0,49, maximaler Drawdown −32 %) gegen +14,4 % (0,23,
+−42 %) für die rein technische Konfiguration und +36,8 % für Buy-and-Hold.</p>
+<p>Schlicht gelesen: Praktisch der gesamte Strategievorteil kam aus der
+Nachrichten-Dimension, und die Prognose selbst war mit Nachrichten messbar besser.
+Der primäre Endpunkt verfehlte dennoch seine vorab gesetzte Schwelle um 0,023.</p>
+<hr />
+<h2 id="6-die-entscheidung">6. Die Entscheidung</h2>
+<p>Die vorregistrierte Regel ordnete einem NEUTRAL-Verdikt die Beendigung zu:
+veröffentlichen, den wiederverwendbaren Audit-Baustein auskoppeln, archivieren.</p>
+<p>Dieser Regel wurde gefolgt. Das Projekt wurde am 2026-08-13 eingestellt. Der
+Abschlusshinweis ging am selben Tag online, der Ledger wurde bei 47 Einträgen
+geschlossen, die interaktiven Ansichten wurden zurückgezogen.</p>
+<p>Es lohnt sich, deutlich zu benennen, was zur Verfügung stand und nicht genommen
+wurde. Der sekundäre Endpunkt bestand. Ein einseitiges α von 0,10 hätte sich als
+konservativ bezeichnen und lockern lassen. Der Backtest-Abstand zwischen den
+Konfigurationen war groß und rhetorisch zugkräftig. Die Lücke betrug 0,023. Jedes
+davon hätte eine Fortsetzung gestützt, und jedes einzelne wäre <strong>nach</strong> dem Blick
+aufs Ergebnis gewählt worden.</p>
+<p>Wir beanspruchen hier keine Tugend — der ganze Zweck der vorher notierten Regel
+war, die Entscheidung in einen Moment zu legen, in dem sie sich nicht mehr
+motivieren lässt. Dafür ist Vorregistrierung da, und so sieht es aus, wenn sie
+bindet.</p>
+<p><strong>Was dieser Bericht nicht behauptet.</strong> Er zeigt nicht, dass Nachrichten keine
+Information über Commodity-Preise tragen. Die Belege auf Prognoseebene deuten in
+die Gegenrichtung. Er zeigt, dass eine bestimmte vorregistrierte Schwelle, auf
+einem bestimmten Endpunkt, mit diesen Daten und diesem Fenster nicht erreicht
+wurde — und dass die angekündigte Folge eintrat.</p>
+<hr />
+<h2 id="7-was-die-kette-nicht-schuetzte">7. Was die Kette nicht schützte</h2>
+<p>Der Befund dieses Abschnitts wurde nicht gesucht. Er tauchte am 2026-08-13 beim
+Nachrechnen der veröffentlichten Zahlen für eine unabhängige Reparatur auf, und er
+ist der Grund, warum die öffentliche Equity-Kurve eingefroren statt aktualisiert
+wurde.</p>
+<h3 id="7-1-was-veroeffentlicht-war">7.1 Was veröffentlicht war</h3>
+<p>Das öffentliche Dashboard zeigte einen kumulierten Return von <strong>+135,0 %</strong>. Die
+korrekte Zahl für dasselbe Datum lautete nachgerechnet <strong>+67,9 %</strong>.</p>
+<h3 id="7-2-der-mechanismus">7.2 Der Mechanismus</h3>
+<p>Das Paper-Trading-Konto wird aus einer Tabelle von <em>Entscheidungen</em> aufgebaut,
+nicht von Merkmalen:</p>
+<ol>
+<li><code>seed_from_backtest()</code> leitet Long/Short-Positionen aus den Backtest-Vorhersagen
+eines bestimmten Tages ab und schreibt sie als Zeilen mit <code>mode='backtest'</code> in
+<code>cfd_paper_input</code>. <strong>Dort werden die Entscheidungen eingefroren.</strong></li>
+<li>Der nächtliche <code>run_live()</code> hängt die Zeile des Tages an und ruft danach
+<code>rebuild()</code>, das die gesamte Historie aus den gespeicherten Eingangszeilen mit
+der aktuellen Konfiguration neu simuliert.</li>
+<li>Daraus die Asymmetrie, die alles Weitere verursachte:
+<strong>Konfigurationsänderungen wirken sich aus, Modelländerungen können es nicht.</strong>
+Eine geänderte Kostenannahme wird jede Nacht neu angewandt. Eine Änderung am
+Modell, das die gespeicherten Entscheidungen erzeugt hat, nicht — die
+Entscheidungen stehen bereits fest.</li>
+<li><code>account_summary()</code> liest die gespeicherte Tagestabelle, nimmt den letzten
+Equity-Wert und rechnet nichts nach.</li>
+<li>Die Backtest-Zeilen auffrischen kann allein <code>seed</code> — ein manueller Befehl, nie
+Teil des nächtlichen Laufs. Keine Prüfung verglich die gespeicherte Kurve mit
+einer frischen Herleitung.</li>
+</ol>
+<h3 id="7-3-die-modellaenderung-gemessen">7.3 Die Modelländerung, gemessen</h3>
+<p>Über alle 55 archivierten Vorhersagedateien (Horizont 5, Entscheidungsregel
+<code>q50 &gt; 0</code>, 1.257 gemeinsame Backtest-Tage):</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Vergleich</th>
+<th>gekippte Entscheidungen</th>
+<th>Anteil Long</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-06-08 → 2026-07-03</td>
+<td>0</td>
+<td>65,8 % → 65,8 %</td>
+</tr>
+<tr>
+<td>2026-07-05 → <strong>2026-07-06</strong></td>
+<td><strong>161 von 1.257 (12,8 %)</strong></td>
+<td>65,8 % → 67,8 %</td>
+</tr>
+<tr>
+<td>2026-07-06 → 2026-08-12</td>
+<td>0</td>
+<td>67,8 % → 67,8 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Im gesamten Live-Zeitraum trat genau eine diskrete Modelländerung auf: die
+Datenreparatur vom 2026-07-06, deren eigener Kernbefund war, dass das Modell seit
+Januar 2026 auf der Nachrichten-Dimension nahezu blind lief. Vor und nach diesem
+Datum sind die Backtest-Entscheidungen identisch.</p>
+<p>Die realisierten Returns und Schlusskurse sind über die Änderung hinweg
+<strong>bitgleich</strong>. Die Grundwahrheit hat sich nie bewegt, nur die Vorhersagen.</p>
+<h3 id="7-4-die-drei-trennungen">7.4 Die drei Trennungen</h3>
+<p>Das Konto neu geseedet aus den Vorhersagedateien vor und nach der Änderung, mit
+der Produktionskonfiguration und derselben leck-freien walk-forward-Short-Schwelle,
+die die veröffentlichte Kurve erzeugt hat:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Kennzahl, gleiches Fenster</th>
+<th>2026-07-05</th>
+<th>2026-08-12</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geseedete Kurve — <strong>die Vorschrift hinter der öffentlichen Zahl</strong></td>
+<td><strong>+119,15 %</strong></td>
+<td><strong>+62,36 %</strong></td>
+<td>eingebrochen</td>
+</tr>
+<tr>
+<td>Buy-and-Hold, gleiches Fenster</td>
+<td>+36,80 %</td>
+<td>+36,80 %</td>
+<td>unverändert</td>
+</tr>
+<tr>
+<td>Long/Cash-Kumulativreturn — <strong>das im Ledger besicherte Gate</strong></td>
+<td>73,6 %</td>
+<td><strong>86,4 %</strong></td>
+<td>verbessert</td>
+</tr>
+</tbody>
+</table></div>
+<p>Daraus folgen drei verschiedene Fehler.</p>
+<p><strong>Erstens: besichert ist nicht veröffentlicht.</strong> Das Qualitäts-Flag des Ledgers
+berechnet sich aus dem Long/Cash-Bookmark. Diese Größe <em>verbesserte</em> sich über die
+Modelländerung hinweg, das Gate blieb also grün, und die Kette verzeichnete
+getreulich 46 von 46 Prognosen als bestanden. Die Kette wurde nie verletzt und ihr
+Protokoll ist zutreffend. Sie bescheinigt eine Strategie, die nicht die auf dem
+Dashboard war.</p>
+<p><strong>Zweitens: gemessen ist nicht gezeigt.</strong> Selbst wer die veröffentlichte Kurve
+täglich prüfte, hätte nichts gesehen — ihre Entscheidungen stammten von vor der
+Änderung. Die angezeigte Zahl war in sich stimmig und nach außen falsch. Das ist
+die ungünstigste Kombination, weil innere Stimmigkeit genau das ist, was eine
+Prüferin kontrolliert.</p>
+<p><strong>Drittens: Konfiguration ist nicht Konfiguration.</strong> Roll-Kosten waren im
+Live-Tick aktiviert, doch der Renderer der öffentlichen Seite baute sein eigenes
+Konfigurationsobjekt daneben und führte sie nicht mit; der Rückfall des Dashboards
+war eine blanke Konfiguration ohne Short-Bein. Drei veröffentlichende Pfade, drei
+Konfigurationen. Die Roll-Kosten allein erklären 135,0 % gegenüber 127,3 %; der
+restliche Abstand zu 67,9 % ist das eingefrorene Modell. Fehlende Roll-Kosten sind
+die eine Kostenart, deren Abwesenheit systematisch schmeichelt.</p>
+<h3 id="7-5-der-test-der-es-nicht-finden-konnte">7.5 Der Test, der es nicht finden konnte</h3>
+<p>Der Wächter gegen die Roll-Kosten-Regression suchte im Quelltext des Live-Ticks
+nach der Zeichenkette <code>apply_roll=True</code>. Die Zeichenkette stand dort. Der Test lief
+über den gesamten Zeitraum grün, in dem die öffentliche Seite Zahlen ohne
+Roll-Kosten zeigte. Er wurde durch Verhaltensprüfungen ersetzt, die alle drei
+veröffentlichenden Pfade abdecken.</p>
+<p><em>Verhalten prüfen, nicht Quelltext.</em> Die Regel ist unspektakulär; lehrreich ist,
+dass ein eigens gegen diese Fehlerklasse geschriebener Test sie strukturell nicht
+erkennen konnte und dabei durchgehend grün aussah.</p>
+<h3 id="7-6-die-allgemeine-lehre">7.6 Die allgemeine Lehre</h3>
+<p>Eine manipulationssichere Kette beweist, was wann vorhergesagt wurde. Sie beweist
+nicht, dass eine daraus abgeleitete Kennzahl noch dazu gehört, und sie schränkt
+nicht ein, welche Größe eine Qualitätsprüfung misst. Beide Lücken öffneten sich
+hier gleichzeitig, in einem System, dessen erklärter Zweck Nachprüfbarkeit war.</p>
+<p>Der fehlende Baustein ist billig, und wir haben ihn nicht gebaut: ein nächtlicher
+Abgleich der gespeicherten Kurve gegen eine frische Herleitung, mit Warnung, sobald
+die Differenz eine Schwelle reißt. Wir empfehlen jedem Projekt, das einen
+abgeleiteten Track Record veröffentlicht, diesen Abgleich als Teil der
+Veröffentlichung zu behandeln und nicht als optionale Prüfung.</p>
+<hr />
+<h2 id="8-befunde-die-anderen-nuetzen">8. Befunde, die anderen nützen</h2>
+<p>Festgehalten, weil sie uns Zeit gekostet haben und anderen welche sparen können.</p>
+<p><strong>Nachträglich ermittelte Publikationsdaten taugen nicht für Backtests.</strong>
+<code>htmldate</code> gegen eine GDELT-Wahrheitsmenge kalibriert: 43,4 % taggenau, 24 % zu
+früh. Zu frühe Datierungen tragen Zukunftsinformation in einen Backtest. Wir haben
+nachgeladene Daten in Trainingsdaten daraufhin untersagt.</p>
+<p><strong>Volltext-Nachladen bringt rund 61 % Ausbeute</strong> bei etwa 6 URLs/s, mit stark
+jahrgangsabhängigem Linkrot. Den Verlust einplanen, statt ihn zu entdecken.</p>
+<p><strong>Richtungs-Trennbarkeit von Schlagzeilen im Embedding-Raum</strong> erreichte 87,5 %
+gegen eine Mehrheitsbasis von 66,7 % auf 130 handbeschrifteten Meldungen. Zur
+Einschränkung durch den einzelnen Beschrifter siehe § 9.</p>
+<p><strong>Mean-Pooling machte Embeddings schlechter, nicht besser.</strong> Über 726 Fenster
+erreichte gemitteltes <code>mxbai-embed-large</code> 41,7 % gegen 46,9 % für die bloße
+Schlagzeile.</p>
+<p><strong>Die Aggregations-Falle</strong>, aus unserer Sicht der übertragbarste Punkt hier. Im
+Livebetrieb stiegen die Tagesmengen von 15,9 auf 48,7 Meldungen (3,1×) — und die
+Streuung der Faktoren halbierte sich fast durchweg. Der Tagesaggregat ist ein
+urgency-gewichteter <em>Mittelwert</em>; mehr Meldungen machen den Mittelwert flacher
+(mit √n), die Tag-zu-Tag-Information sinkt also, während das Volumen steigt.
+Volumen hoch, Information runter. Ein Modell, das auf 16 Meldungen pro Tag
+trainiert wurde und 49 bekommt, sieht eine Verteilungsverschiebung, kein Rauschen.</p>
+<p>Die Falle schließt sich nicht dadurch, dass man handgebaute Kategorien durch
+Embeddings ersetzt. Das Flachwerden ist eine Eigenschaft der Tagesmittelung, nicht
+der Taxonomie: 49 Artikelvektoren zu mitteln flacht genauso ab wie 49
+Faktorwerte. Wer auf Embeddings umstellt, muss die Aggregation bewusst
+mitentwerfen.</p>
+<p><strong>Lizenzlagen, die man vor dem Bauen kennen sollte.</strong> Die deutsche
+Tankstellenpreis-Historie (MTS-K über Tankerkönig) ist nichtkommerziell lizenziert
+und erfordert für kommerzielle Nutzung einen Vertrag — verbreitete Angaben, die
+Historie stehe unter CC BY 4.0, treffen nicht zu; beim Anbieter bestätigt. Der
+Free-Tier von Open-Meteo ist ausdrücklich nichtkommerziell. Sauber auch für
+kommerzielle Nutzung freigegeben, mit Quellenangabe: die Trockenheitsplattform des
+Schweizer BAFU, Hub'Eau (Etalab 2.0), Copernicus EDO (CC BY 4.0), DWD CDC
+(GeoNutzV).</p>
+<hr />
+<h2 id="9-grenzen">9. Grenzen</h2>
+<ol>
+<li>
+<p><strong>Das Live-Fenster ist kurz.</strong> Neun Wochen, davon elf Tage
+Infrastrukturausfall. Es trägt Aussagen über den <em>Mechanismus</em> nachprüfbarer
+Vorab-Festlegung und keine über Performance. Jede Renditezahl in diesem Bericht
+ist eine Backtest-Zahl und als solche gekennzeichnet.</p>
+</li>
+<li>
+<p><strong>Das Live-Fenster entscheidet auch in keine Richtung.</strong> Der Trader erzielte
++6,94 % gegen +17,21 % für Buy-and-Hold über 37 Live-Tage — 10,3 Punkte
+zurück. Dieses Fenster liegt im 6. Perzentil aller 1.220 gleich langen
+Backtest-Fenster, doch 42 % aller Backtest-Fenster lagen ebenfalls hinter
+Buy-and-Hold. Ein 37-Tage-Fenster hinter dem Markt ist gewöhnlich. Die
+Live-Trefferquote betrug 50,0 % auf 26 Markttagen, ±19,2 Punkte bei 95 % —
+ein Intervall, das den Münzwurf ebenso enthält wie die Backtest-Quote von
+52,8 %.</p>
+</li>
+<li>
+<p><strong>Ein Beschrifter, ein Datensatz.</strong> Die 130 handbeschrifteten Schlagzeilen
+stammen von einem einzigen Annotator (Claude), ohne Zweitbewertung und ohne
+Übereinstimmungsmaß. Die Trennbarkeitszahl in § 8 ist ein Hinweis, keine
+Messung.</p>
+</li>
+<li>
+<p><strong>Für Nicht-Metall-Commodities existiert keine ökonomische Positivkontrolle.</strong>
+Die synthetische Kontrolle schließt die methodische Frage, nicht die
+ökonomische. Das ist eine offene Lücke in unserem Werkzeug.</p>
+</li>
+<li>
+<p><strong>Die naive Screening-Phase ist wertlos</strong> und erscheint nur als Lehrstück.</p>
+</li>
+<li>
+<p><strong><code>n_trials</code> zählt Kombinationen, keine unabhängigen Hypothesen</strong> (§ 5.1).</p>
+</li>
+<li>
+<p><strong>Handgebaute Merkmalsspalten waren größtenteils leer.</strong> Von 23 definierten
+Spalten über 2.895 Tage mit Kurs: <code>f_demand_ev</code> zu 0,0 % belegt,
+<code>f_demand_defense</code> 0,2 %, <code>n_reconstruction</code> 0,1 %, <code>n_ceasefire</code> 0,6 %,
+<code>n_peace_progress</code> 0,9 %; drei weitere Spalten existierten im Schema und wurden
+nie geschrieben. Jede Deutung des Beitrags dieser Merkmale muss
+berücksichtigen, dass viele von ihnen fast keine Daten trugen.</p>
+</li>
+<li>
+<p><strong>Ein einzelner Betreiber.</strong> Entwurf, Umsetzung, Auswertung und Entscheidung
+lagen bei einer Person, unterstützt von einem Sprachmodell. Register und Kette
+begrenzen, was sich nachträglich ändern ließ; sie ersetzen keine unabhängige
+Replikation.</p>
+</li>
+</ol>
+<hr />
+<h2 id="10-reproduktion">10. Reproduktion</h2>
+<p>Das Reproduktionspaket liegt diesem Bericht im Zenodo-Eintrag bei: Roh-Prognosen
+mit Tagesquantilen und Bewertungsdiagnostik, der geschlossene Ledger samt
+Zeitstempel-Ankern, die täglichen Punktewolken-Merkmale, die 130 beschrifteten
+Schlagzeilen, die Auswertungsskripte und die Vorregistrierungen. Ein Manifest
+hält Provenienz und SHA-256-Prüfsummen je Datei fest.</p>
+<p><strong>Bewusst ausgenommen.</strong> Die COMEX-Schlusskurse wurden aus den Prognosedateien
+entfernt. Alles, was dieser Bericht behauptet — Kalibrierung, Pinball-Verlust,
+Trefferquoten, die Trader-Simulation, die Rekonstruktion in § 7 — bleibt aus den
+verbliebenen realisierten Returns und Quantilen reproduzierbar; die Kursreihe
+selbst steht uns zur Weitergabe nicht zu. Der Nachrichten-Rohbestand und die
+Merkmalsdatenbank liegen ebenfalls nicht bei; beide sind regenerierbar, und keine
+Aussage dieses Berichts hängt an ihnen.</p>
+<p><strong>Quellenangabe.</strong> Die Nachrichtendaten stammen aus dem GDELT-Projekt
+(<a href="https://www.gdeltproject.org/">https://www.gdeltproject.org/</a>), dessen Bedingungen die Weitergabe mit
+Zitation erlauben.</p>
+<p><strong>Bewusst nicht korrigiert.</strong> Die Registereinträge sind wiedergegeben, wie sie
+geschrieben wurden, einschließlich der Warnung in Eintrag 22, die Eintrag 25
+später umstieß. Die Abfolge zu lesen ist Teil des Protokolls.</p>
+<hr />
+<p><em>Erstellt mit Unterstützung von Claude (Anthropic) für Auswertung, Verifikation
+und Textfassung, im Auftrag des Autors, der für Entwurf, Entscheidungen und
+Inhalt verantwortlich zeichnet.</em></p>
+
+  </article>
+  <div class="foot">Xommodo — Forschungsprojekt, planmäßig eingestellt am 2026-08-13.
+    Der Prediction-Ledger bleibt öffentlich und prüfbar.</div>
+</div>
+</body></html>
